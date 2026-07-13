@@ -4,8 +4,344 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>programme</title>
- </head>
- <body>
-    
+    <!-- Bootstrap 5 via CDN : feuille de style --> 
+<link 
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+rel="stylesheet"> 
+<!-- Votre feuille de style personnelle --> 
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body> 
+<!-- Le contenu de la page sera ajoute ici --> 
+<!-- Bootstrap 5 via CDN : script JavaScript --> 
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script> 
+<!-- Votre script JavaScript --> 
+<script src="js/main.js"></script>
+<link rel="stylesheet" 
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+
+    <header class="site-header">
+      <nav class="main-navigation">
+        <!-- Logo / Marque textuelle -->
+        <a class="nav-brand" href="index.html">AfriConnect Summit 2026</a>
+        
+        <!-- Zone d'actions (Bascule Thème + Bouton Menu Mobile) à droite -->
+        <div class="nav-actions">
+            <!-- Bouton bascule de thème -->
+            <button id="theme-toggle" class="icon-button" aria-label="Changer de thème">
+                <i id="theme-icon" class="bi bi-moon-fill"></i>
+            </button>
+            <!-- Bouton Hamburger natif (Uniquement visible sur Mobile/Tablette) -->
+            <button id="menu-toggle" class="icon-button mobile-only" aria-label="Ouvrir le menu de navigation">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Liste des liens de navigation (Modifiée via JS sur mobile) -->
+        <ul id="nav-menu" class="nav-links">
+            <li><a href="index.html" class="nav-item">Accueil</a></li>
+            <li><a href="programme.html" class="nav-item">Programme</a></li>
+            <li><a href="intervenants.html" class="nav-item">Intervenants</a></li>
+            <li><a href="contact.html" class="nav-item">Inscription & Contact</a></li>
+        </ul>
+      </nav>
+   </header>
+
+   <!-- BANNIÈRE HERO INTERNE (SÉMANTIQUE HTML5) -->
+
+    <section class="internal-hero transition-theme">
+        <div class="section-container hero-internal-content">
+            <!-- Titre principal de la page secondaire -->
+            <h1 class="internal-hero-title">Le <span class="text-accent-custom">Programme</span></h1>
+            <!-- Fil d'Ariane sémantique (Breadcrumb) -->
+            <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Accueil</a></li>
+                    <li class="breadcrumb-item breadcrumb-active" aria-current="page">Programme</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- SECTION LOGISTIQUE DU PROGRAMME (SÉMANTIQUE HTML5) -->
+
+    <section class="schedule-section transition-theme" id="planning-interactive">
+        <div class="section-container">
+        
+            <!-- BOUTONS DES ONGLETS (USAGE FLEXBOX) -->
+            <div class="tabs-container" role="tablist" aria-label="Jours du sommet">
+                <button class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-day1" id="tab-day1">
+                    Jour 1 <span class="tab-date">14 Oct</span>
+                </button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-day2" id="tab-day2">
+                    Jour 2 <span class="tab-date">15 Oct</span>
+                </button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-day3" id="tab-day3">
+                    Jour 3 <span class="tab-date">16 Oct</span>
+                </button>
+            </div>
+
+            <!-- CONTENU DES PANELS ONGLETS -->
+            <div class="panels-container">
+            
+                <!-- PLANNING JOUR 1 (AFFICHÉ PAR DÉFAUT) -->
+                <article class="schedule-panel active" id="panel-day1" role="tabpanel" aria-labelledby="tab-day1">
+                    <table class="schedule-table">
+                        <caption>Planning Officiel - Jour 1</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Heure</th>
+                                <th scope="col">Session</th>
+                                <th scope="col">Intervenant</th>
+                                <th scope="col">Salle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08:30 - 09:30</td>
+                                <td class="session-name">Accueil des participants & Enregistrement</td>
+                                <td>Équipe Logistique</td>
+                                <td>Hall Principal</td>
+                            </tr>
+                            <tr>
+                                <td>09:30 - 11:00</td>
+                                <td class="session-name">Keynote d'ouverture : L'Afrique à l'ère de l'IA Générative</td>
+                                <td>Dr. Fatou Diop</td>
+                                <td>Amphi Gorée</td>
+                            </tr>
+                            <tr>
+                                <td>11:00 - 11:30</td>
+                                <td class="session-name">Pause Café & Networking</td>
+                                <td>Tous les délégués</td>
+                                <td>Espace Partenaires</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 - 13:00</td>
+                                <td class="session-name">Panel : Souveraineté des données et Cloud Africain</td>
+                                <td>Kwame Mensah</td>
+                                <td>Salle Djoudj</td>
+                            </tr>
+                            <tr>
+                                <td>14:30 - 16:30</td>
+                                <td class="session-name">Atelier : Infrastructures télécoms et connectivité rurale</td>
+                                <td>Experts Orange & Moov</td>
+                                <td>Lab Tech</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <!-- PLANNING JOUR 2 (CACHÉ PAR DÉFAUT) -->
+                <article class="schedule-panel" id="panel-day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
+                    <table class="schedule-table">
+                        <span>Planning Officiel - Jour 2</span>
+                        <thead>
+                            <tr>
+                                <th scope="col">Heure</th>
+                                <th scope="col">Session</th>
+                                <th scope="col">Intervenant</th>
+                                <th scope="col">Salle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00 - 10:30</td>
+                                <td class="session-name">Fintech : L'évolution de l'interopérabilité des paiements</td>
+                                <td>Amina Koné</td>
+                                <td>Amphi Gorée</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 - 11:00</td>
+                                <td class="session-name">Pause Networking & Galerie Sponsors</td>
+                                <td>Tous les délégués</td>
+                                <td>Espace Partenaires</td>
+                            </tr>
+                            <tr>
+                                <td>11:00 - 12:30</td>
+                                <td class="session-name">Blockchain et micro-crédits pour l'agriculture</td>
+                                <td>Sidy Ndiaye</td>
+                                <td>Salle Djoudj</td>
+                            </tr>
+                            <tr>
+                                <td>14:00 - 15:30</td>
+                                <td class="session-name">Pitch de Startups : AfriConnect Innovation Awards</td>
+                                <td>Jury International</td>
+                                <td>Amphi Gorée</td>
+                            </tr>
+                            <tr>
+                                <td>15:45 - 17:00</td>
+                                <td class="session-name">Table ronde : Financer la DeepTech en Afrique</td>
+                                <td>BVC & Investisseurs</td>
+                                <td>Salle Niokolo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+                <!-- PLANNING JOUR 3 (CACHÉ PAR DÉFAUT) -->
+                <article class="schedule-panel" id="panel-day3" role="tabpanel" aria-labelledby="tab-day3" hidden>
+                    <table class="schedule-table">
+                        <span>Planning Officiel - Jour 3</span>
+                        <thead>
+                            <tr>
+                                <th scope="col">Heure</th>
+                                <th scope="col">Session</th>
+                                <th scope="col">Intervenant</th>
+                                <th scope="col">Salle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00 - 10:30</td>
+                                <td class="session-name">Cybersécurité : Protéger les infrastructures critiques</td>
+                                <td>Col. Faye</td>
+                                <td>Salle Djoudj</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 - 12:00</td>
+                                <td class="session-name">Atelier : Formation et reconversion des talents de demain</td>
+                                <td>Prof. Fall</td>
+                                <td>Lab Tech</td>
+                            </tr>
+                            <tr>
+                                <td>12:00 - 13:00</td>
+                                <td class="session-name">Restitution du Hackathon AfriConnect</td>
+                                <td>Équipes Finalistes</td>
+                                <td>Amphi Gorée</td>
+                            </tr>
+                            <tr>
+                                <td>14:30 - 15:30</td>
+                                <td class="session-name">Keynote de clôture : Cap sur 2027</td>
+                                <td>Comité d'Organisation</td>
+                                <td>Amphi Gorée</td>
+                            </tr>
+                            <tr>
+                                <td>15:30 - 17:00</td>
+                                <td class="session-name">Cocktail de clôture & Échanges Libres</td>
+                                <td>Tous les délégués</td>
+                                <td>Jardin de l'Hôtel</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION THÉMATIQUES (SÉMANTIQUE HTML5) -->
+
+    <section class="topics-section transition-theme" id="thematiques">
+        <div class="section-container">
+            
+            <h2 class="section-title">Les Grandes <span class="text-accent-custom">Thématiques</span></h2>
+            
+            <!-- CSS GRID 2x2 CONFIGURÉ DIRECTEMENT PAR CLASSE EXTERNE -->
+            <div class="topics-grid">
+                
+                <!-- Thématique 1 -->
+                <article class="topic-card js-scroll-animate">
+                    <div class="topic-icon-box">
+                        <i class="bi bi-cpu-fill" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="topic-heading">Intelligence Artificielle</h3>
+                    <p class="topic-description">Analyse de l'impact des modèles génératifs et solutions d'IA appliquées aux défis du continent africain.</p>
+                </article>
+
+                <!-- Thématique 2 -->
+                <article class="topic-card js-scroll-animate">
+                    <div class="topic-icon-box">
+                        <i class="bi bi-cloud-check-fill" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="topic-heading">Infrastructure Cloud</h3>
+                    <p class="topic-description">Souveraineté des données, déploiement de datacenters locaux et architectures cloud hybrides.</p>
+                </article>
+
+                <!-- Thématique 3 -->
+                <article class="topic-card js-scroll-animate">
+                    <div class="topic-icon-box">
+                        <i class="bi bi-wallet2" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="topic-heading">Fintech & Blockchain</h3>
+                    <p class="topic-description">Inclusion financière, interopérabilité des paiements mobiles et opportunités des monnaies numériques.</p>
+                </article>
+
+                <!-- Thématique 4 -->
+                <article class="topic-card js-scroll-animate">
+                    <div class="topic-icon-box">
+                        <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="topic-heading">Cybersécurité</h3>
+                    <p class="topic-description">Stratégies de protection des infrastructures critiques, audits de résilience et gouvernance.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+     
+    <footer class="site-footer transition-theme" id="main-footer">
+        <div class="section-container">
+        
+            <!-- USAGE FLEXBOX DISTINCT : Distribution des 3 blocs de colonnes -->
+            <div class="footer-columns-container">
+            
+                <!-- Colonne 1 : À propos / Logo -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title text-accent-custom">AfriConnect Summit 2026</h4>
+                    <p class="footer-text-muted">Le rendez-vous incontournable de l'innovation technologique et du networking stratégique en Afrique. Rejoignez-nous à Dakar.</p>
+                </div>
+
+                <!-- Colonne 2 : Liens Rapides -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Liens Utiles</h4>
+                    <ul class="footer-vertical-links">
+                        <li><a href="index.html" class="footer-link-item">Accueil</a></li>
+                        <li><a href="programme.html" class="footer-link-item">Programme</a></li>
+                        <li><a href="intervenants.html" class="footer-link-item">Intervenants</a></li>
+                        <li><a href="contact.html" class="footer-link-item">Inscription & Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Réseaux Sociaux & Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Suivez-nous</h4>
+                    <p class="footer-text-muted">Restez connecté pour ne manquer aucune mise à jour.</p>
+                
+                    <!-- USAGE FLEXBOX DISTINCT : Alignement horizontal des icônes réseaux -->
+                    <div class="footer-socials-row">
+                        <a href="#" class="social-circle-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="Twitter X"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Séparateur horizontal natif -->
+            <hr class="footer-separator">
+
+            <!-- Zone Bas de page : Copyright (USAGE FLEXBOX DISTINCT) -->
+            <div class="footer-bottom-flex">
+                <p><span id="current-year"></span> AfriConnect Summit. Tous droits réservés.</p>
+                <p>Fait avec <i class="bi bi-heart-fill text-accent-custom"></i> pour l'Afrique numérique.</p>
+            </div>
+        
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT (ENTIÈREMENT GÉRÉ EN CSS/JS NATIF) -->
+    <button id="back-to-top" class="scroll-top-button hidden" aria-label="Retour en haut de page">
+        <i class="bi bi-arrow-up-short"></i>
+    </button>
+
+
  </body>
  </html>

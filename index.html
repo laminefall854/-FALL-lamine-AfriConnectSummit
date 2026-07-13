@@ -4,8 +4,370 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>acceuille</title>
+    <!-- Bootstrap 5 via CDN : feuille de style --> 
+<link 
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+rel="stylesheet"> 
+<!-- Votre feuille de style personnelle --> 
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body> 
+<!-- Le contenu de la page sera ajoute ici --> 
+<!-- Bootstrap 5 via CDN : script JavaScript --> 
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script> 
+<!-- Votre script JavaScript --> 
+<script src="js/main.js"></script>
+<link rel="stylesheet" 
+   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
 </head>
 <body>
+
+    <!-- NAVBAR -->
+
+    <header class="site-header">
+      <nav class="main-navigation">
+        <!-- Logo / Marque textuelle -->
+        <a class="nav-brand" href="index.html">AfriConnect Summit 2026</a>
+        
+        <!-- Zone d'actions (Bascule Thème + Bouton Menu Mobile) à droite -->
+        <div class="nav-actions">
+            <!-- Bouton bascule de thème -->
+            <button id="theme-toggle" class="icon-button" aria-label="Changer de thème">
+                <i id="theme-icon" class="bi bi-moon-fill"></i>
+            </button>
+            <!-- Bouton Hamburger natif (Uniquement visible sur Mobile/Tablette) -->
+            <button id="menu-toggle" class="icon-button mobile-only" aria-label="Ouvrir le menu de navigation">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Liste des liens de navigation (Modifiée via JS sur mobile) -->
+        <ul id="nav-menu" class="nav-links">
+            <li><a href="index.html" class="nav-item">Accueil</a></li>
+            <li><a href="programme.html" class="nav-item">Programme</a></li>
+            <li><a href="intervenants.html" class="nav-item">Intervenants</a></li>
+            <li><a href="contact.html" class="nav-item">Inscription & Contact</a></li>
+        </ul>
+      </nav>
+   </header>
+
+    <!-- SECTION HERO PRINCIPALE (SÉMANTIQUE HTML5) -->
+    <section class="main-hero transition-theme">
+        <div class="section-container hero-main-content">
+        
+            <!-- Titres et Accroche -->
+            <h1 class="hero-title animate-fade-in">
+                AfriConnect <span class="text-accent-custom">Summit 2026</span>
+            </h1>
+            <p class="hero-lead animate-fade-in delay-1">Dakar | 14-16 Octobre 2026</p>
+        
+            <!-- COMPTE À REBOURS (USAGES FLEXBOX DISTINCT) -->
+            <div class="countdown-flex-container animate-fade-in delay-2" id="countdown-container">
+                <div class="countdown-card">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Jours</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Heures</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+        
+            <!-- BOUTONS D'ACTION (CTA) -->
+            <div class="hero-actions-flex animate-fade-in delay-3">
+                <a href="contact.html" class="btn-hero btn-filled">Réserver</a>
+                <a href="programme.html" class="btn-hero btn-outlined">Programme</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION CHIFFRES CLÉS (SÉMANTIQUE HTML5) -->
+    <section class="stats-section transition-theme" id="chiffres-cles">
+        <div class="section-container">
+        
+            <h2 class="section-title">Le Sommet en <span class="text-accent-custom">Chiffres</span></h2>
+        
+            <!-- USAGE CSS GRID DISTINCT : Alignement natif des 4 cartes -->
+            <div class="stats-grid">
+            
+                <!-- Stat 1 : Participants -->
+                <article class="stat-card">
+                    <div class="stat-number">
+                        <span class="js-counter" data-target="1200">0</span>+
+                    </div>
+                    <p class="stat-label">Participants</p>
+                </article>
+
+                <!-- Stat 2 : Intervenants -->
+                <article class="stat-card">
+                    <div class="stat-number">
+                        <span class="js-counter" data-target="48">0</span>
+                    </div>
+                    <p class="stat-label">Intervenants</p>
+                </article>
+
+                <!-- Stat 3 : Jours -->
+                <article class="stat-card">
+                    <div class="stat-number">
+                        <span class="js-counter" data-target="3">0</span>
+                    </div>
+                    <p class="stat-label">Jours de Conférence</p>
+                </article>
+
+                <!-- Stat 4 : Pays -->
+                <article class="stat-card">
+                    <div class="stat-number">
+                        <span class="js-counter" data-target="12">0</span>
+                    </div>
+                    <p class="stat-label">Pays Représentés</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION POURQUOI PARTICIPER (SÉMANTIQUE HTML5) -->
+
+    <section class="benefits-section transition-theme" id="pourquoi-participer">
+        <div class="section-container">
+        
+            <!-- Titre centré et gras via la classe CSS dédiée -->
+            <h2 class="section-title">Pourquoi participer à l'<span class="text-accent-custom">AfriConnect Summit</span> ?</h2>
+        
+            <!-- USAGE FLEXBOX DISTINCT : Alignement vertical des arguments -->
+            <div class="benefits-flex-container">
+            
+                <!-- Argument 1 -->
+                <article class="argument-card scroll-animate">
+                    <div class="argument-icon-wrapper">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="argument-content">
+                        <h3 class="argument-heading">Networking Stratégique</h3>
+                        <p class="argument-description">Rencontrez plus de 1 200 décideurs, investisseurs et créateurs de technologies venus de tout le continent pour bâtir des partenariats durables.</p>
+                    </div>
+                </article>
+
+                <!-- Argument 2 -->
+                <article class="argument-card scroll-animate">
+                    <div class="argument-icon-wrapper">
+                        <i class="bi bi-lightbulb-fill"></i>
+                    </div>
+                    <div class="argument-content">
+                        <h3 class="argument-heading">Sessions d'Inspiration</h3>
+                        <p class="argument-description">Accédez à des conférences exclusives animées par 48 experts internationaux sur l'intelligence artificielle, l'infrastructure cloud et la fintech en Afrique.</p>
+                    </div>
+                </article>
+
+                <!-- Argument 3 -->
+                <article class="argument-card scroll-animate">
+                    <div class="argument-icon-wrapper">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <div class="argument-content">
+                        <h3 class="argument-heading">Opportunités d'Affaires</h3>
+                        <p class="argument-description">Découvrez en avant-première les innovations prêtes pour le marché et positionnez votre entreprise au cœur de l'écosystème numérique africain.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION INTERVENANTS VEDETTES (SÉMANTIQUE HTML5) -->
+
+    <section class="featured-speakers-section transition-theme" id="intervenants-vedettes">
+        <div class="section-container">
+        
+            <!-- Titre centré et gras via la classe globale CSS -->
+            <h2 class="section-title">Intervenants <span class="text-accent-custom">Vedettes</span></h2>
+    
+            <!-- 2ÈME USAGE CSS GRID DISTINCT : Alignement des 4 intervenants -->
+            <div class="speakers-grid-layout">
+        
+                <!-- Intervenant 1 -->
+                <article class="featured-speaker-card scroll-animate">
+                    <div class="speaker-img-wrapper">
+                        <img src="" class="speaker-img-file" alt="Portrait de Dr. Fatou Diop, Experte en Intelligence Artificielle">
+                        <span class="country-badge">Sénégal</span>
+                    </div>
+                    <div class="speaker-card-body">
+                        <h3 class="speaker-card-name">Dr. Fatou Diop</h3>
+                        <p class="speaker-card-specialty">Experte en Intelligence Artificielle</p>
+                        <p class="speaker-card-company">Directrice Tech @ AfriAI Lab</p>
+                    </div>
+                </article>
+
+                <!-- Intervenant 2 -->
+                <article class="featured-speaker-card scroll-animate">
+                    <div class="speaker-img-wrapper">
+                        <img src="" class="speaker-img-file" alt="Portrait de Kwame Mensah, Fondateur & VC Investor">
+                        <span class="country-badge">Ghana</span>
+                    </div>
+                    <div class="speaker-card-body">
+                        <h3 class="speaker-card-name">Kwame Mensah</h3>
+                        <p class="speaker-card-specialty">Fondateur & VC Investor</p>
+                        <p class="speaker-card-company">Managing Partner @ Akwaaba Ventures</p>
+                    </div>
+                </article>
+
+                <!-- Intervenant 3 -->
+                <article class="featured-speaker-card scroll-animate">
+                    <div class="speaker-img-wrapper">
+                        <img src="" class="speaker-img-file" alt="Portrait de Amina Alami, Architecte Cloud & Sécurité">
+                        <span class="country-badge">Maroc</span>
+                    </div>
+                    <div class="speaker-card-body">
+                        <h3 class="speaker-card-name">Amina Alami</h3>
+                        <p class="speaker-card-specialty">Architecte Cloud & Sécurité</p>
+                        <p class="speaker-card-company">Consultante Principale @ CyberShield</p>
+                    </div>
+                </article>
+
+                <!-- Intervenant 4 -->
+                <article class="featured-speaker-card scroll-animate">
+                    <div class="speaker-img-wrapper">
+                        <img src="" class="speaker-img-file" alt="Portrait de Zanele Dlamini, Économiste & Spécialiste Web3">
+                        <span class="country-badge">Afrique du Sud</span>
+                    </div>
+                    <div class="speaker-card-body">
+                        <h3 class="speaker-card-name">Zanele Dlamini</h3>
+                        <p class="speaker-card-specialty">Économiste & Spécialiste Web3</p>
+                        <p class="speaker-card-company">Chercheuse @ FutureFinance Institute</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Zone d'action inférieure (Bouton de redirection) -->
+            <div class="more-speakers-action">
+                <a href="intervenants.html" class="btn-more-speakers">
+                    Voir tous les intervenants <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SPONSORS (SÉMANTIQUE HTML5) -->
+
+    <section class="sponsors-section transition-theme" id="sponsors">
+        <div class="section-container">
+        
+            <!-- Titre centré et gras via la classe CSS globale -->
+            <h2 class="section-title">Nos <span class="text-accent-custom">Sponsors</span></h2>
+
+            <!-- USAGE FLEXBOX DISTINCT 3 : Niveau Or (Grands logos centrés) -->
+            <div class="sponsors-tier tier-gold">
+                <article class="sponsor-card">
+                    <img src="images/carrefour.jpg" alt="Logo officiel du Sponsor niveau Or numéro 1">
+                </article>
+                <article class="sponsor-card">
+                    <img src="images/station.jpg" alt="Logo officiel du Sponsor niveau Or numéro 2">
+                </article>
+            </div>
+
+            <!-- USAGE FLEXBOX DISTINCT 3 : Niveau Argent (Taille intermédiaire) -->
+            <div class="sponsors-tier tier-silver">
+                <article class="sponsor-card">
+                    <img src="images/peinture.jpg" alt="Logo officiel du Sponsor niveau Argent numéro 1">
+                </article>
+                <article class="sponsor-card">
+                    <img src="images/comprime.jpg" alt="Logo officiel du Sponsor niveau Argent numéro 2">
+                </article>
+                <article class="sponsor-card">
+                    <img src="images/coca.jpg" alt="Logo officiel du Sponsor niveau Argent numéro 3">
+                </article>
+            </div>
+
+            <!-- USAGE FLEXBOX DISTINCT 3 : Niveau Bronze (Plus petits et compacts) -->
+            <div class="sponsors-tier tier-bronze">
+                <article class="sponsor-card">
+                    <img src="images/iphone.jpg" alt="Logo officiel du Sponsor niveau Bronze numéro 1">
+                </article>
+                <article class="sponsor-card">
+                    <img src="images/pixel.jpg" alt="Logo officiel du Sponsor niveau Bronze numéro 2">
+                </article>
+                <article class="sponsor-card">
+                <img src="images/samsung.jpg" alt="Logo officiel du Sponsor niveau Bronze numéro 3">
+                </article>
+                <article class="sponsor-card">
+                    <img src="images/techno.jpg" alt="Logo officiel du Sponsor niveau Bronze numéro 4">
+                </article>
+            </div>
+
+        </div>
+    </section>
+    
+        <!-- FOOTER (SÉMANTIQUE HTML5) -->
+    <footer class="site-footer transition-theme" id="main-footer">
+        <div class="section-container">
+        
+            <!-- USAGE FLEXBOX DISTINCT : Distribution des 3 blocs de colonnes -->
+            <div class="footer-columns-container">
+            
+                <!-- Colonne 1 : À propos / Logo -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title text-accent-custom">AfriConnect Summit 2026</h4>
+                    <p class="footer-text-muted">Le rendez-vous incontournable de l'innovation technologique et du networking stratégique en Afrique. Rejoignez-nous à Dakar.</p>
+                </div>
+
+                <!-- Colonne 2 : Liens Rapides -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Liens Utiles</h4>
+                    <ul class="footer-vertical-links">
+                        <li><a href="index.html" class="footer-link-item">Accueil</a></li>
+                        <li><a href="programme.html" class="footer-link-item">Programme</a></li>
+                        <li><a href="intervenants.html" class="footer-link-item">Intervenants</a></li>
+                        <li><a href="contact.html" class="footer-link-item">Inscription & Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Réseaux Sociaux & Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Suivez-nous</h4>
+                    <p class="footer-text-muted">Restez connecté pour ne manquer aucune mise à jour.</p>
+                
+                    <!-- USAGE FLEXBOX DISTINCT : Alignement horizontal des icônes réseaux -->
+                    <div class="footer-socials-row">
+                        <a href="#" class="social-circle-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="Twitter X"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-circle-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Séparateur horizontal natif -->
+            <hr class="footer-separator">
+
+            <!-- Zone Bas de page : Copyright (USAGE FLEXBOX DISTINCT) -->
+            <div class="footer-bottom-flex">
+                <p><span id="current-year"></span> AfriConnect Summit. Tous droits réservés.</p>
+                <p>Fait avec <i class="bi bi-heart-fill text-accent-custom"></i> pour l'Afrique numérique.</p>
+            </div>
+        
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT (ENTIÈREMENT GÉRÉ EN CSS/JS NATIF) -->
+    <button id="back-to-top" class="scroll-top-button hidden" aria-label="Retour en haut de page">
+        <i class="bi bi-arrow-up-short"></i>
+    </button>
+
     
 </body>
 </html>

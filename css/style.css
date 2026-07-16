@@ -1,0 +1,162 @@
+/* ==========================================================================
+   PARTIE 1 : IMPORTATION DES POLICES (2 GOOGLE FONTS)
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+/* ==========================================================================
+   PARTIE 2 : LOGIQUE DES VARIABLES CSS (:ROOT - MINIMUM 10 VALEURS RÉELLES)
+   ========================================================================== */
+:root {
+    /* 1. Palette cohérente de couleurs (Fond clair par défaut, accents orange) */
+    --background-main: #ffffff;       /* Couleur principale de fond */
+    --background-alt: #f8f9fa;        /* Couleur secondaire alternée */
+    --background-card: #ffffff;       /* Fond des blocs et cartes */
+    --text-main: #0f172a;             /* Couleur du texte principal */
+    --text-muted: #475569;            /* Couleur du texte secondaire estompé */
+    --color-accent: #ff5a1f;          /* Orange électrique dynamique (Marque) */
+    --color-accent-hover: #e04810;    /* Variande d'orange pour le survol */
+    
+    /* 2. Typographies appliquées (Expressive pour titres, lisible pour corps) */
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* 3. Espacements, Rayons (Radius) et Utilitaires */
+    --spacing-layout: 80px;           /* Marges internes des grandes sections */
+    --radius-standard: 12px;          /* Arrondis des boutons et cadres */
+    --radius-circle: 50%;             /* Forme ronde pour images ou icônes */
+    --shadow-box: 0 10px 15px -3px rgba(15, 23, 42, 0.05); /* Ombre portée */
+    --transition-speed: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Vitesse interactive */
+}
+
+/* ==========================================================================
+   PARTIE 3 : RESET CSS GLOBAL & STYLES DU CORPS (BODY)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Calcule les marges à l'intérieur du cadre */
+}
+
+html {
+    scroll-behavior: smooth; /* Défilement fluide natif */
+    font-family: var(--font-body); /* Application de la police de corps Inter */
+    background-color: var(--background-main); /* Fond blanc par défaut */
+    color: var(--text-main);
+}
+
+body {
+    overflow-x: hidden; /* Empêche les défilements horizontaux parasites */
+    line-height: 1.6;
+}
+
+/* Styles par défaut pour les liens et images */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Application des paddings des conteneurs de sections via la variable d'espacement */
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-layout) 24px; /* Utilisation réelle de la variable */
+}
+
+/* Application de la police expressive Syne sur les titres */
+h1, h2, h3, .section-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.text-accent-custom {
+    color: var(--color-accent); /* Couleur orange de la marque */
+}
+
+/* ==========================================================================
+   PARTIE 4 : STYLISATION DE LA NAVBAR (LOGO À GAUCHE, LIENS À DROITE VIA FLEXBOX)
+   ========================================================================== */
+.site-header {
+    position: fixed; /* Navigation fixe en haut de page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Fond blanc transparent */
+    backdrop-filter: blur(12px); /* Effet de flou moderne */
+    border-bottom: 1px solid var(--text-muted);
+    z-index: 1000;
+}
+
+/* Alignement Flexbox principal */
+.main-navigation {
+    display: flex;             /* FLEXBOX : Alignement horizontal du menu */
+    justify-content: space-between; /* Logo à l'extrême gauche, reste à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+
+/* Logo stylisé aligné à gauche */
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent); /* Texte du logo en orange */
+}
+
+/* Liens alignés à droite à l'intérieur de la boîte flex */
+.nav-links {
+    display: flex;             /* Flexbox imbriqué pour aligner les puces li */
+    list-style: none;
+    gap: 32px;                 /* Espace horizontal régulier entre les liens */
+}
+
+.nav-item {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    /* Transition CSS obligatoire sur l'élément interactif */
+    transition: color var(--transition-speed); 
+}
+
+.nav-item:hover {
+    color: var(--color-accent); /* Devient orange au survol */
+}
+
+/* Boutons de contrôle et actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-circle); /* Devient un cercle parfait */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.icon-button:hover {
+    background-color: var(--background-alt);
+    color: var(--color-accent);
+}
+
+.mobile-only {
+    display: none; /* Masqué par défaut sur l'affichage bureau (desktop) */
+}

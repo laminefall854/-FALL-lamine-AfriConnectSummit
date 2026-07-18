@@ -13,8 +13,8 @@
     --background-card: #ffffff;       /* Fond des blocs et cartes */
     --text-main: #0f172a;             /* Couleur du texte principal */
     --text-muted: #475569;            /* Couleur du texte secondaire estompé */
-    --color-accent: #ff5a1f;          /* Orange électrique dynamique (Marque) */
-    --color-accent-hover: #e04810;    /* Variande d'orange pour le survol */
+    --color-accent: #eab308;          /* Orange électrique dynamique (Marque) */
+    --color-accent-hover: #eab308;    /* Variande d'orange pour le survol */
     
     /* 2. Typographies appliquées (Expressive pour titres, lisible pour corps) */
     --font-heading: 'Syne', sans-serif;
@@ -47,6 +47,7 @@ html {
 body {
     overflow-x: hidden; /* Empêche les défilements horizontaux parasites */
     line-height: 1.6;
+    padding-top: 90px;
 }
 
 /* Styles par défaut pour les liens et images */
@@ -159,4 +160,753 @@ h1, h2, h3, .section-title {
 
 .mobile-only {
     display: none; /* Masqué par défaut sur l'affichage bureau (desktop) */
+}
+/* ==========================================================================
+   VARIABLES DE THÈME & RESET
+   ========================================================================== */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6c757d;
+    --accent: #eab308; /* Orange AfriConnect */
+    --accent-hover: #eab308;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --border-color: #dee2e6;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #f8f9fa;
+    --text-secondary: #a0a0a0;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.transition-theme {
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-accent-custom {
+    color: var(--accent);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   NAVBAR & EN-TÊTE
+   ========================================================================== */
+.site-header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.main-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-item {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--accent);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color var(--transition-speed) ease;
+}
+
+.icon-button:hover {
+    color: var(--accent);
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* ==========================================================================
+   1. SECTION HERO (HAUTEUR PLEIN ÉCRAN 100VH)
+   ========================================================================== */
+.main-hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--bg-secondary);
+    padding-top: 80px; /* Compensation navbar */
+}
+
+.hero-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.hero-lead {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.hero-actions-flex {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-filled {
+    background-color: var(--accent);
+    color: #ffffff;
+    border: 2px solid var(--accent);
+}
+
+.btn-filled:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outlined {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+}
+
+.btn-outlined:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. BOÎTE COMPTE À REBOURS (FLEXBOX)
+   ========================================================================== */
+.countdown-flex-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.countdown-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.countdown-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+.sponsors-section {
+    padding: 100px 0;
+    background-color: var(--bg-secondary);
+}
+
+/* Alignement vertical des 3 blocs de niveaux */
+.sponsors-section .section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Espace important entre l'Or, l'Argent et le Bronze */
+}
+
+/* Style de base pour chaque conteneur de niveau (Usage Flexbox distinct) */
+.sponsors-tier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permet un retour à la ligne fluide sur mobile */
+}
+
+/* Style générique des cartes contenant les logos */
+.sponsor-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 15px;
+    transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.sponsor-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Empêche la déformation des logos d'entreprises */
+    filter: grayscale(20%); /* Uniformise légèrement le rendu visuel */
+    transition: filter var(--transition-speed) ease;
+}
+
+.sponsor-card:hover img {
+    filter: grayscale(0%); /* Restitue les couleurs d'origine au survol */
+}
+
+/* --------------------------------------------------------------------------
+   DIFFÉRENCIATION VISUELLE STRICTE PAR LA TAILLE (FLEXBOX)
+   -------------------------------------------------------------------------- */
+
+/* 1. Niveau Or : Très grands blocs espacés */
+.tier-gold {
+    gap: 40px;
+}
+.tier-gold .sponsor-card {
+    width: 260px;
+    height: 130px;
+    border: 2px solid rgba(230, 95, 43, 0.15); /* Optionnel : légère touche distinctive */
+}
+
+/* 2. Niveau Argent : Taille intermédiaire */
+.tier-silver {
+    gap: 30px;
+}
+.tier-silver .sponsor-card {
+    width: 200px;
+    height: 100px;
+}
+
+/* 3. Niveau Bronze : Plus petits et compacts */
+.tier-bronze {
+    gap: 20px;
+}
+.tier-bronze .sponsor-card {
+    width: 150px;
+    height: 75px;
+}
+
+/* ==========================================================================
+   3. SECTION CHIFFRES CLÉS (CSS GRID 4 COLONNES)
+   ========================================================================== */
+.speakers-grid-layout {
+    display: grid;
+    /* Aligne rigoureusement 4 colonnes de tailles égales sur la même ligne */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.featured-speaker-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column; /* Force un alignement vertical interne homogène */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Effets Hover CSS fluides demandés par le cahier des charges */
+.featured-speaker-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.speaker-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixe la hauteur de l'image pour que toutes les cartes soient identiques */
+    background-color: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.speaker-img-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre proprement l'image sans la déformer */
+}
+
+.country-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(26, 26, 26, 0.85);
+    color: #ffffff;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+3. SECTION CHIFFRES CLÉS (STYLE & ALIGNEMENT CSS GRID)
+   ========================================================================== */
+.stats-section {
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+}
+
+/* Grille principale assurant l'alignement strict des 4 cartes sur une seule ligne */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* Design des cartes reprenant la logique visuelle épurée */
+.stat-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 50px 25px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    /* Transition fluide obligatoire pour tous les effets de survol */
+    transition: transform var(--transition-speed) ease, 
+                border-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
+}
+
+/* Effet de survol moderne (Hover) */
+.stat-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Ligne décorative supérieure discrète qui s'affiche au survol */
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) ease;
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Typographie des compteurs JavaScript animés */
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    /* Empêche le tremblement visuel des cartes pendant l'incrémentation du compteur JS */
+    font-variant-numeric: tabular-nums; 
+    transition: color var(--transition-speed) ease;
+}
+
+/* Coloration du chiffre au survol de sa carte */
+.stat-card:hover .stat-number {
+    color: var(--accent);
+}
+
+/* Libellé de la statistique sous le chiffre */
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Conteneur des textes de la carte */
+.speaker-card-body {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1; /* Pousse les pieds de cartes à s'aligner horizontalement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.speaker-card-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.speaker-card-specialty {
+    color: var(--accent); /* Utilise la couleur orange distinctive */
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.speaker-card-company {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   4. SECTION THÉMATIQUES / POURQUOI PARTICIPER (MATRICE ASYMÉTRIQUE 2x2)
+   ========================================================================== */
+.benefits-section {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+}
+
+/* Transformation de la structure d'alignement vertical en matrice asymétrique */
+.benefits-flex-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+}
+
+.argument-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.argument-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Configuration asymétrique 2x2 */
+.argument-card:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.argument-card:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3; /* Élément plus grand s'étendant verticalement */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.argument-card:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.argument-icon-wrapper {
+    background-color: rgba(230, 95, 43, 0.1);
+    color: var(--accent);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.argument-heading {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.argument-description {
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (BREAKPOINTS POUR MOBILE ET TABLETTE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .benefits-flex-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .argument-card:nth-child(1),
+    .argument-card:nth-child(2),
+    .argument-card:nth-child(3) {
+        grid-column: auto;
+        grid-row: auto;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .countdown-flex-container {
+        gap: 15px;
+    }
+    .countdown-card {
+        min-width: 80px;
+        padding: 10px;
+    }
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+}
+/* FOOTER 3 COLONNES FLEXBOX & BAS DE PAGE *
+   ========================================================================== */
+.site-footer {
+    background-color: #eab308;
+    border-top: 1px solid var(--border-color);
+    padding: 70px 0 30px 0;
+}
+
+/* Distribution horizontale des 3 blocs de colonnes via Flexbox */
+.footer-columns-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap; /* Assure le passage à la ligne propre sur mobile */
+}
+
+/* Formatage individuel de chaque colonne */
+.footer-column {
+    flex: 1;
+    min-width: 250px; /* Empêche les colonnes de devenir trop étroites */
+}
+
+.footer-column-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-text-muted {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Liste de liens verticaux */
+.footer-vertical-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link-item {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+}
+
+.footer-link-item:hover {
+    color: var(--accent);
+    padding-left: 5px; /* Petit effet de glissement au survol */
+}
+
+/* Alignement horizontal des icônes réseaux via Flexbox */
+.footer-socials-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-circle-link {
+    width: 42px;
+    height: 42px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 50%; /* Crée un bouton parfaitement circulaire */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+}
+
+.social-circle-link:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Ligne de séparation */
+.footer-separator {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 40px 0 25px 0;
+}
+
+/* Alignement bas de page (Copyright et mentions) via Flexbox */
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   BOUTON RETOUR EN HAUT (CSS DYNAMIQUE)
+   ========================================================================== */
+.scroll-top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 46px;
+    height: 46px;
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+    transition: background-color var(--transition-speed) ease, 
+                transform var(--transition-speed) ease, 
+                opacity var(--transition-speed) ease, 
+                visibility var(--transition-speed) ease;
+}
+
+.scroll-top-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-4px);
+}
+
+/* Classe utilitaire basculée via JavaScript lorsque l'utilisateur est en haut de page */
+.scroll-top-button.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
 }

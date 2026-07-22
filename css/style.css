@@ -541,7 +541,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-3. SECTION CHIFFRES CLÉS (STYLE & ALIGNEMENT CSS GRID)
+ SECTION CHIFFRES CLÉS (STYLE & ALIGNEMENT CSS GRID)
    ========================================================================== */
 .stats-section {
     padding: 100px 0;
@@ -909,4 +909,108 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px);
+}
+/* --------------------------------------------------------------------------
+   ÉCRANS TABLETTES (Largeur maximale : 992px à 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    /* Grille des statistiques (Index) et des Intervenants (Intervenants) */
+    .stats-grid, 
+    .speakers-grid-layout {
+        grid-template-columns: repeat(2, 1fr) ; /* Bascule de 4 à 2 colonnes */
+        gap: 20px;
+    }
+
+    /* Layout en deux colonnes de la page contact */
+    .registration-flex-split {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .registration-form-block, 
+    .registration-info-block {
+        width: 100%;
+    }
+
+    .registration-info-block {
+        position: static; /* Annule le sticky pour laisser défiler naturellement */
+    }
+}
+
+/* --------------------------------------------------------------------------
+   ÉCRANS MOBILES FORMAT COMPACT (Largeur maximale : 768px à 375px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. NAVBAR RESPONSIVE & MENU HAMBURGER */
+    .mobile-only {
+        display: block ; /* Rend le bouton hamburger visible */
+    }
+
+    .nav-links {
+        display: none; /* Masque les liens par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    /* Classe activée via JavaScript pour afficher le menu */
+    .nav-links.active {
+        display: flex ; 
+    }
+
+    /* 2. ADAPTATION DES GRILLES SUR ÉCRAN RÉDUIT */
+    .stats-grid, 
+    .speakers-grid-layout {
+        grid-template-columns: 1fr ; /* Force le passage sur 1 seule colonne */
+    }
+
+    /* 3. SECTION POURQUOI PARTICIPER (FLEXBOX VERTICAL) */
+    .argument-card {
+        flex-direction: column; /* Aligne l'icône au-dessus du texte */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .argument-content {
+        text-align: center;
+    }
+
+    /* 4. TYPOGRAPHIE & AJUSTEMENTS HERO */
+    .hero-title {
+        font-size: 2.3rem; /* Réduction du titre pour éviter les coupures à 375px */
+    }
+
+    .internal-hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    /* 5. FOOTER RESPONSIVE */
+    .footer-columns-container {
+        flex-direction: column; /* Les blocs du footer s'empilent */
+        text-align: center;
+        gap: 30px;
+    }
+
+    /* 6. BOUTONS DE FILTRE (PAGE INTERVENANTS) */
+    .filters-container {
+        gap: 8px; /* Rapproche les boutons pour le défilement tactile */
+    }
+
+    .filter-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
 }

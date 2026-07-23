@@ -797,7 +797,7 @@ body {
 }
 
 .footer-text-muted {
-    color: var(--text-secondary);
+    color: #dee2e6;
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -811,7 +811,7 @@ body {
 }
 
 .footer-link-item {
-    color: var(--text-secondary);
+    color: #dee2e6;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color var(--transition-speed) ease, padding-left var(--transition-speed) ease;
@@ -867,7 +867,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    color: var(--text-secondary);
+    color: #dee2e6;
     font-size: 0.9rem;
 }
 
@@ -1013,4 +1013,16 @@ body {
         padding: 8px 16px;
         font-size: 0.9rem;
     }
+}
+/* ==========================================================================
+   STYLE DE LA NAVBAR APPRÈS 80PX DE DÉFILEMENT
+   ========================================================================== */
+.site-header.scrolled {
+    background-color: #eab308; /* Change la couleur de fond (clair ou sombre) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)  /* Ajoute l'ombre portée demandée */
+    border-bottom-color: transparent; /* Masque la bordure fine initiale */
+    padding: 8px 0; /* Réduit légèrement la hauteur de la navbar pour un effet fluide */
+    transition: background-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease, 
+                padding var(--transition-speed) ease;
 }

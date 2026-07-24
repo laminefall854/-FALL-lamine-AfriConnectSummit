@@ -72,3 +72,76 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. CONFIGURATION DE L'API INTERSECTION OBSERVER
+    // ==========================================
+    // Options globales pour déclencher l'animation quand 15% de l'élément est visible
+    const observerOptions = {
+        root: null, // Utilise la boîte de visualisation du navigateur (viewport)
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" // Déclenche un peu avant l'entrée complète
+    };
+
+    // ==========================================
+    // 2. COMPTEURS ANIMÉS AU SCROLL (INDEX.HTML)
+    // ==========================================
+    const counters = document.querySelectorAll(".js-counter");
+    
+    if (counters.length > 0) {
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                // Si la section des chiffres clés devient visible à l'écran
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute("data-target");
+                    const duration = 2000; // Durée totale de l'animation en millisecondes (2 secondes)
+                    const stepTime = Math.max(Math.floor(duration / target), 15);
+                    
+                    let start = 0;
+                    
+                    const timer = setInterval(() => {
+                        start += Math.ceil(target / (duration / stepTime));
+                        if (start >= target) {
+                            counter.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = start;
+                        }
+                    }, stepTime);
+                    
+                    // Désactive l'observation pour ne pas rejouer l'animation inutilement
+                    observer.unobserve(counter);
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(animateCounters, observerOptions);
+        counters.forEach(counter => counterObserver.observe(counter));
+    }
+
+    // ==========================================
+    // 3. ANIMATIONS FADE-IN / SLIDE-IN DES SECTIONS (INDEX & PROGRAMME)
+    // ==========================================
+    // Cible les cartes d'arguments, d'intervenants et de sessions possédant la classe d'animation
+    const animatedElements = document.querySelectorAll(".scroll-animate, .animate-fade-in");
+
+    if (animatedElements.length > 0) {
+        const triggerFadeIn = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Ajoute la classe CSS active pour déclencher la transition d'apparition
+                    entry.target.classList.add("appeared");
+                    // Arrête d'observer l'élément une fois apparu
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const fadeObserver = new IntersectionObserver(triggerFadeIn, observerOptions);
+        animatedElements.forEach(element => fadeObserver.observe(element));
+    }
+});
